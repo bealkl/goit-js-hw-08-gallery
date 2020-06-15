@@ -36,12 +36,12 @@ function closeModalImageWindow() {
 }
 
 function closeModalImageWindowWithOverlay(e) {
-  if (e.target !== refs.imageLarge) return;
+  if (e.target === refs.imageLarge) return;
   closeModalImageWindow();
 }
 
 function makeModalImageWindow(e) {
-  if (e.target.tagName !== "IMG") return;
+  if (e.target.tagName !== 'IMG') return;
   e.preventDefault();
   window.addEventListener('keydown', closeModalWithEscape);
   refs.imageLarge.setAttribute('src', `${e.target.dataset.source}`);
